@@ -17,7 +17,13 @@ class Player {
   prettyTime(timeInSeconds) {
     const M = Math.floor(timeInSeconds / 60);
     const SS = Math.floor(timeInSeconds % 60);
-    return M + ":" + SS
+    let MST = M + ":"
+    if (SS < 10) {
+      return MST + "0" + SS
+    }
+    else {
+      return MST + SS
+    }
   }
 
   playPause (song = this.currentlyPlaying) {
